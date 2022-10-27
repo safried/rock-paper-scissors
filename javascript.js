@@ -43,19 +43,11 @@ function assessRound(playerSelection, computerSelection){
 }
 //function to play a single round
 function playRound() {
-        //player input
         let playerInput = prompt("Choose your weapon (Paper, Scissors, or Rock): ");
         let playerSelection = playerInput.toLowerCase();
-
-        //for testing in VS Code
-        //let playerSelection = "paper";
-
-        //test valid input
         testValidInput(playerSelection);
-        //computer selection
         let computerSelection = getComputerChoice();
         console.log("The computer chose", computerSelection);
-        //assess results of round
         assessRound(playerSelection, computerSelection);
 }
 
@@ -67,11 +59,24 @@ function playMatch(gameInput) {
     }
 }
 
+function assessResults(playerPoints, computerPoints){
+    if (playerPoints > computerPoints){
+        console.log("You win the match!");
+    }
+    else if (computerPoints < playerPoints) {
+        console.log("You lost the match!");
+    }
+    else{
+        console.log("The match has ended in a tie!");
+    }
+}
+
 
 
 //MAIN
 let gameInput = prompt("How many rounds would you like to play: ");
 playMatch(gameInput);
+assessResults(playerPoints,computerPoints);
 
 
 
