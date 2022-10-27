@@ -1,3 +1,46 @@
+//valid options
+const validOptions = ["paper", "scissor", "rock"];
+
+//function to get computer choice
+
+//function to play a single round
+/*function playRound(playerSelection, computerSelection) {
+    //code
+}
+*/
+
+//function to play a game of 5 rounds
+/*
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        //code
+    }
+}
+*/
+
+//player input
+let playerInput = prompt("Choose your weapon (Paper, Scissor, or Rock): ");
+let playerSelection = playerInput.toLowerCase();
+//confirm valid option 
+for (let i = 0; i < 3; i++){
+    if (playerSelection == validOptions[i]){
+        console.log("You chose ", playerSelection);
+        break;
+    } else if (i==2){
+        console.log("Error, invalid option detected")
+        break;
+    }
+}
+/*
+let playerRawInput = prompt("Chose your weapon (Paper, Scissor, or Rock): ");
+playerRawInput
+*/
+
+
+
+
+
+
 // Pseudocode <3
 
 /*
