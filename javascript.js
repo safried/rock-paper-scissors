@@ -11,7 +11,7 @@ function testValidInput(playerSelection){
             console.log("You chose", playerSelection);
             break;
         } else if (i==(validOptionsLength-1)){
-            console.log("Error, invalid option detected")
+            console.log("Error, invalid option detected");
             break;
         }
     }
@@ -41,9 +41,10 @@ function assessRound(playerSelection, computerSelection){
         computerPoints++;
     }
 }
+
 //function to play a single round
 function playRound() {
-        let playerInput = prompt("Choose your weapon (Paper, Scissors, or Rock): ");
+        let playerInput = prompt("Choose your weapon(Paper, Scissors, or Rock): ");
         let playerSelection = playerInput.toLowerCase();
         testValidInput(playerSelection);
         let computerSelection = getComputerChoice();
@@ -51,19 +52,19 @@ function playRound() {
         assessRound(playerSelection, computerSelection);
 }
 
-
 //function to play a game of n rounds
-function playMatch(gameInput) {
-    for (let i = 0; i < gameInput; i++) {
+function playMatch(gameInput){
+    for (let i = 0; i < gameInput; i++){
         playRound();
     }
 }
 
+//function to assess results
 function assessResults(playerPoints, computerPoints){
     if (playerPoints > computerPoints){
         console.log("You win the match!");
     }
-    else if (computerPoints < playerPoints) {
+    else if (computerPoints < playerPoints){
         console.log("You lost the match!");
     }
     else{
@@ -71,43 +72,7 @@ function assessResults(playerPoints, computerPoints){
     }
 }
 
-
-
 //MAIN
 let gameInput = prompt("How many rounds would you like to play: ");
 playMatch(gameInput);
 assessResults(playerPoints,computerPoints);
-
-
-
-
-
-
-// Pseudocode <3
-
-/*
-For each game (5 rounds per game)
-    For each round
-        Prompt player for their choice 
-            - this should be case insensitive so users can input rock, ROCK, RocK or any other variation
-            - if not one of the three options, display error
-        Run function for computer choice
-            -randomly select between the three options
-        Evaluate round results
-            - input = player-choice & computer-choice
-            - output = player-win, player-tie, player-lose
-            - Print message to screen showing result
-                - ex: "You Lose! Paper beats Rock"
-            - save results somewhere
-    Evaluate game results
-        - input = round-results
-        - output = game-win, game-tie, game-lose
-            - if 2 win && 2 lose == tie
-            - else if 2 wins && 2 ties == win?
-            - else if 2 lose && 2 ties == lose?
-            - else if 3+ (aka over 50%) win == win
-            - else if 3+ (aka over 50%) lose == lose
-            - else if 3+ (aka over 50%) tie == tie 
-            - else - something went wrong
-        - print message to screen showing overall game-result
-*/
