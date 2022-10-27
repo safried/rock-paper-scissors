@@ -1,5 +1,6 @@
 //valid options
-const validOptions = ["paper", "scissor", "rock"];
+const validOptions = ["paper", "scissors", "rock"];
+const validOptionsLength = 3;
 
 //function to get computer choice
 
@@ -19,24 +20,22 @@ function playGame() {
 */
 
 //player input
-let playerInput = prompt("Choose your weapon (Paper, Scissor, or Rock): ");
+let playerInput = prompt("Choose your weapon (Paper, Scissors, or Rock): ");
 let playerSelection = playerInput.toLowerCase();
 //confirm valid option 
-for (let i = 0; i < 3; i++){
+for (let i = 0; i < validOptionsLength; i++){
     if (playerSelection == validOptions[i]){
-        console.log("You chose ", playerSelection);
+        console.log("You chose", playerSelection);
         break;
-    } else if (i==2){
+    } else if (i==(validOptionsLength-1)){
         console.log("Error, invalid option detected")
         break;
     }
 }
-/*
-let playerRawInput = prompt("Chose your weapon (Paper, Scissor, or Rock): ");
-playerRawInput
-*/
 
-
+//computer selection
+let computerSelection = validOptions[Math.floor(Math.random()*validOptionsLength)];
+console.log("The computer chose", computerSelection);
 
 
 
