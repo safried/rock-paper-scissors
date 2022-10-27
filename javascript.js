@@ -1,6 +1,8 @@
 //valid options
 const validOptions = ["paper", "scissors", "rock"];
-const validOptionsLength = 3;
+const validOptionsLength = validOptions.length;
+let playerPoints;
+let computerPoints;
 
 //function to get computer choice
 
@@ -22,6 +24,10 @@ function playGame() {
 //player input
 let playerInput = prompt("Choose your weapon (Paper, Scissors, or Rock): ");
 let playerSelection = playerInput.toLowerCase();
+
+//for testing in VS Code
+//let playerSelection = "paper";
+
 //confirm valid option 
 for (let i = 0; i < validOptionsLength; i++){
     if (playerSelection == validOptions[i]){
@@ -36,6 +42,26 @@ for (let i = 0; i < validOptionsLength; i++){
 //computer selection
 let computerSelection = validOptions[Math.floor(Math.random()*validOptionsLength)];
 console.log("The computer chose", computerSelection);
+
+
+//game analysis
+
+if (playerSelection == "rock" && computerSelection == "scissors"){
+    console.log("You win! Rock beats Scissors.");
+    playerPoints++;
+}else if (playerSelection == "scissors" && computerSelection == "paper"){
+    console.log("You win! Scissors beats Paper.");
+    playerPoints++;
+}else if (playerSelection == "paper" && computerSelection == "rock"){
+    console.log("You win! Paper beats Rock.");
+    playerPoints++;
+}else if (playerSelection == computerSelection){
+    console.log("It's a tie");
+}else {
+    console.log("You lose!",computerSelection,"beats",playerSelection);
+    computerPoints++;
+}
+
 
 
 
