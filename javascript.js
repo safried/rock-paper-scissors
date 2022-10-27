@@ -37,42 +37,42 @@ function assessRound(playerSelection, computerSelection){
     }else if (playerSelection == computerSelection){
         console.log("It's a tie");
     }else {
-        console.log("You lose!",computerSelection,"beats",playerSelection);
+        console.log("You lose!",computerSelection,"beats",playerSelection,".");
         computerPoints++;
     }
 }
 //function to play a single round
-/*function playRound(playerSelection, computerSelection) {
-    //code
-}
-*/
+function playRound() {
+        //player input
+        let playerInput = prompt("Choose your weapon (Paper, Scissors, or Rock): ");
+        let playerSelection = playerInput.toLowerCase();
 
-//function to play a game of 5 rounds
-/*
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        //code
+        //for testing in VS Code
+        //let playerSelection = "paper";
+
+        //test valid input
+        testValidInput(playerSelection);
+        //computer selection
+        let computerSelection = getComputerChoice();
+        console.log("The computer chose", computerSelection);
+        //assess results of round
+        assessRound(playerSelection, computerSelection);
+}
+
+
+//function to play a game of n rounds
+function playMatch(gameInput) {
+    for (let i = 0; i < gameInput; i++) {
+        playRound();
     }
 }
-*/
+
 
 
 //MAIN
+let gameInput = prompt("How many rounds would you like to play: ");
+playMatch(gameInput);
 
-//player input
-let playerInput = prompt("Choose your weapon (Paper, Scissors, or Rock): ");
-let playerSelection = playerInput.toLowerCase();
-
-//for testing in VS Code
-//let playerSelection = "paper";
-
-//test valid input
-testValidInput(playerSelection);
-//computer selection
-let computerSelection = getComputerChoice();
-console.log("The computer chose", computerSelection);
-//assess results of round
-assessRound(playerSelection, computerSelection);
 
 
 
