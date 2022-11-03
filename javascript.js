@@ -1,5 +1,5 @@
 //Constants and necessary variables
-const validOptions = ["paper", "scissors", "rock"];
+const validOptions = ["rock", "paper", "scissors"];
 const validOptionsLength = validOptions.length;
 let playerPoints;
 let computerPoints;
@@ -71,6 +71,24 @@ function assessResults(playerPoints, computerPoints){
         console.log("The match has ended in a tie!");
     }
 }
+
+//UI
+let rockButton = document.createElement("BUTTON");
+rockButton.innerHTML = "rock";
+document.body.appendChild(rockButton);
+
+let paperButton = document.createElement("button");
+paperButton.innerHTML = "paper";
+document.body.appendChild(paperButton);
+
+let scissorsButton = document.createElement("button");
+scissorsButton.innerHTML = "scissors";
+document.body.appendChild(scissorsButton);
+
+
+
+
+
 
 //MAIN
 let gameInput = prompt("How many rounds would you like to play: ");
