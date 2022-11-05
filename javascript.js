@@ -43,6 +43,8 @@ function assessRound(playerSelection, computerSelection){
         div.innerHTML="You lose! "+ computerSelection+" beats "+playerSelection+" .";
         computerPoints+= 1;
     }
+    //div.console.log(playerPoints);//works
+    //console.log(computerPoints);//works
 }
 
 //function to play a single round
@@ -55,18 +57,22 @@ function assessRound(playerSelection, computerSelection){
     assessRound(playerSelection, computerSelection);
 }
 */
+/*
 function playMatch (input){
     for (let i = 0; i < totalRounds; i++){
         playRound(input);
     }
     assessResults;
 }
+*/
 
 function playRound(playerInput) {
     let playerSelection = playerInput;
     let computerSelection = getComputerChoice();
     console.log("The computer chose", computerSelection);
     assessRound(playerSelection, computerSelection);
+    //console.log(playerPoints);//works
+    //console.log(computerPoints);//works
 }
 
 //function to play a match of n rounds
@@ -107,7 +113,7 @@ for (i = 0; i<validOptionsLength; i++){
     button.innerHTML = validOptions[i];
     button.addEventListener("click", ()=>{
         playerInput = button.innerHTML;
-        playMatch(playerInput);
+        playRound(playerInput);
     });
     document.body.appendChild(button);
 }
@@ -125,6 +131,11 @@ computerPointsLog.style.width = "100px";
 computerPointsLog.innerHTML = "computer points =" + computerPoints;
 document.body.appendChild(computerPointsLog);
 
+var roundLog = document.createElement("div");
+roundLog.style.width = "100px";
+//roundLog.style.height = "100px";
+roundLog.innerHTML = "rounds =" + rounds;
+document.body.appendChild(roundLog);
 
 /*
 let rounds1 = 0;
