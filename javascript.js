@@ -5,7 +5,7 @@ let playerPoints;
 let computerPoints;
 
 //function to test valid input
-function testValidInput(playerSelection){
+/*function testValidInput(playerSelection){
     for (let i = 0; i < validOptionsLength; i++){
         if (playerSelection == validOptions[i]){
             console.log("You chose", playerSelection);
@@ -16,6 +16,7 @@ function testValidInput(playerSelection){
         }
     }
 }
+*/
 
 //function to get computer choice
 function getComputerChoice(){
@@ -43,21 +44,30 @@ function assessRound(playerSelection, computerSelection){
 }
 
 //function to play a single round
-function playRound() {
-        let playerInput = prompt("Choose your weapon(Paper, Scissors, or Rock): ");
-        let playerSelection = playerInput.toLowerCase();
-        testValidInput(playerSelection);
-        let computerSelection = getComputerChoice();
-        console.log("The computer chose", computerSelection);
-        assessRound(playerSelection, computerSelection);
+/*function playRound() {
+    let playerInput = prompt("Choose your weapon(Paper, Scissors, or Rock): ");
+    let playerSelection = playerInput.toLowerCase();
+    testValidInput(playerSelection);
+    let computerSelection = getComputerChoice();
+    console.log("The computer chose", computerSelection);
+    assessRound(playerSelection, computerSelection);
+}
+*/
+function playRound(e) {
+    let playerSelection = e.button.innerHTML;
+    let computerSelection = getComputerChoice();
+    console.log("The computer chose", computerSelection);
+    assessRound(playerSelection, computerSelection);
 }
 
-//function to play a game of n rounds
+//function to play a match of n rounds
+/*
 function playMatch(gameInput){
     for (let i = 0; i < gameInput; i++){
         playRound();
     }
 }
+*/
 
 //function to assess results
 function assessResults(playerPoints, computerPoints){
@@ -72,8 +82,49 @@ function assessResults(playerPoints, computerPoints){
     }
 }
 
+
+function playerSelectionTest (e){
+    let playerInput = e;
+    playerSelection = playerInput.button.innerHTML;
+    console.log(playerSelection);
+}
+
+
+
+
 //UI
-let rockButton = document.createElement("BUTTON");
+for (i = 0; i<validOptionsLength; i++){
+    let button = document.createElement("button");
+    button.innerHTML = validOptions[i];
+    button.addEventListener("click", ()=>{
+        playerSelection = button.innerHTML;
+        console.log(playerSelection);
+    });
+    document.body.appendChild(button);
+}
+
+
+/*
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", playRound);
+    //(button.innerHTML));
+})
+*/
+/*
+let rounds = 5;
+while (rounds != 5){
+    if "click", playRound();
+    rounds ++;
+}
+*/
+
+
+
+
+
+/*
+let rockButton = document.createElement("button");
 rockButton.innerHTML = "rock";
 document.body.appendChild(rockButton);
 
@@ -85,12 +136,22 @@ let scissorsButton = document.createElement("button");
 scissorsButton.innerHTML = "scissors";
 document.body.appendChild(scissorsButton);
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", playRound);
+})
+*/
+//TEST
+
+
 
 
 
 
 
 //MAIN
+/*
 let gameInput = prompt("How many rounds would you like to play: ");
 playMatch(gameInput);
 assessResults(playerPoints,computerPoints);
+*/
