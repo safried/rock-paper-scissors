@@ -27,18 +27,18 @@ function getComputerChoice(){
 //function to assess results of one round
 function assessRound(playerSelection, computerSelection){
     if (playerSelection == "rock" && computerSelection == "scissors"){
-        console.log("You win! Rock beats Scissors.");
+        div.innerHTML="You win! Rock beats Scissors.";
         playerPoints++;
     }else if (playerSelection == "scissors" && computerSelection == "paper"){
-        console.log("You win! Scissors beats Paper.");
+        div.innerHTML="You win! Scissors beats Paper.";
         playerPoints++;
     }else if (playerSelection == "paper" && computerSelection == "rock"){
-        console.log("You win! Paper beats Rock.");
+        div.innerHTML="You win! Paper beats Rock.";
         playerPoints++;
     }else if (playerSelection == computerSelection){
-        console.log("It's a tie");
+        div.innerHTML="It's a tie";
     }else {
-        console.log("You lose!",computerSelection,"beats",playerSelection,".");
+        div.innerHTML="You lose!",computerSelection,"beats",playerSelection,".";
         computerPoints++;
     }
 }
@@ -82,17 +82,13 @@ function assessResults(playerPoints, computerPoints){
     }
 }
 
-
-/*function playerSelectionTest (e){
-    let playerInput = e;
-    playerSelection = playerInput.button.innerHTML;
-    console.log(playerSelection);
-}
-*/
-
-
-
 //UI
+var div = document.createElement("div");
+div.style.width = "100px";
+div.style.height = "100px";
+div.innerHTML = "Chose your weapon";
+document.body.appendChild(div);
+
 for (i = 0; i<validOptionsLength; i++){
     let button = document.createElement("button");
     button.innerHTML = validOptions[i];
@@ -102,6 +98,8 @@ for (i = 0; i<validOptionsLength; i++){
     });
     document.body.appendChild(button);
 }
+
+
 
 
 /*
