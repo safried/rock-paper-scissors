@@ -1,8 +1,10 @@
 //Constants and necessary variables
 const validOptions = ["rock", "paper", "scissors"];
 const validOptionsLength = validOptions.length;
-let playerPoints;
-let computerPoints;
+let playerPoints = 0;
+let computerPoints = 0;
+let rounds = 0
+let totalRounds = 5;
 
 //function to test valid input
 /*function testValidInput(playerSelection){
@@ -28,18 +30,18 @@ function getComputerChoice(){
 function assessRound(playerSelection, computerSelection){
     if (playerSelection == "rock" && computerSelection == "scissors"){
         div.innerHTML="You win! Rock beats Scissors.";
-        playerPoints++;
+        playerPoints+= 1;
     }else if (playerSelection == "scissors" && computerSelection == "paper"){
         div.innerHTML="You win! Scissors beats Paper.";
-        playerPoints++;
+        playerPoints+= 1;
     }else if (playerSelection == "paper" && computerSelection == "rock"){
         div.innerHTML="You win! Paper beats Rock.";
-        playerPoints++;
+        playerPoints+= 1;
     }else if (playerSelection == computerSelection){
         div.innerHTML="It's a tie";
     }else {
-        div.innerHTML="You lose!",computerSelection,"beats",playerSelection,".";
-        computerPoints++;
+        div.innerHTML="You lose! "+ computerSelection+" beats "+playerSelection+" .";
+        computerPoints+= 1;
     }
 }
 
@@ -53,6 +55,13 @@ function assessRound(playerSelection, computerSelection){
     assessRound(playerSelection, computerSelection);
 }
 */
+function playMatch (input){
+    for (let i = 0; i < totalRounds; i++){
+        playRound(input);
+    }
+    assessResults;
+}
+
 function playRound(playerInput) {
     let playerSelection = playerInput;
     let computerSelection = getComputerChoice();
@@ -70,15 +79,19 @@ function playMatch(gameInput){
 */
 
 //function to assess results
+//if (rounds == totalRounds){
+//    assessResults;
+//} 
+
 function assessResults(playerPoints, computerPoints){
     if (playerPoints > computerPoints){
-        console.log("You win the match!");
+        div.innerHTML="You win the match!";
     }
     else if (computerPoints < playerPoints){
-        console.log("You lost the match!");
+        div.innerHTML="You lost the match!";
     }
     else{
-        console.log("The match has ended in a tie!");
+        div.innerHTML="The match has ended in a tie!";
     }
 }
 
@@ -94,61 +107,35 @@ for (i = 0; i<validOptionsLength; i++){
     button.innerHTML = validOptions[i];
     button.addEventListener("click", ()=>{
         playerInput = button.innerHTML;
-        playRound(playerInput);
+        playMatch(playerInput);
     });
     document.body.appendChild(button);
 }
 
 
+var playerPointsLog = document.createElement("div");
+playerPointsLog.style.width = "100px";
+//playerPointsLog.style.height = "100px";
+playerPointsLog.innerHTML = "playerPoints =" + playerPoints;
+document.body.appendChild(playerPointsLog);
+
+var computerPointsLog = document.createElement("div");
+computerPointsLog.style.width = "100px";
+//computerPointsLog.style.height = "100px";
+computerPointsLog.innerHTML = "computer points =" + computerPoints;
+document.body.appendChild(computerPointsLog);
 
 
 /*
-const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
-    button.addEventListener("click", playRound);
-    //(button.innerHTML));
-})
-*/
-/*
-let rounds = 5;
-while (rounds != 5){
-    if "click", playRound();
+let rounds1 = 0;
+while (rounds1 != 5){
+    if playRound();
     rounds ++;
 }
 */
 
 
-
-
-
-/*
-let rockButton = document.createElement("button");
-rockButton.innerHTML = "rock";
-document.body.appendChild(rockButton);
-
-let paperButton = document.createElement("button");
-paperButton.innerHTML = "paper";
-document.body.appendChild(paperButton);
-
-let scissorsButton = document.createElement("button");
-scissorsButton.innerHTML = "scissors";
-document.body.appendChild(scissorsButton);
-
-const buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
-    button.addEventListener("click", playRound);
-})
-*/
-//TEST
-
-
-
-
-
-
-
-//MAIN
-/*
+/*MAIN
 let gameInput = prompt("How many rounds would you like to play: ");
 playMatch(gameInput);
 assessResults(playerPoints,computerPoints);
