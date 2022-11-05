@@ -53,8 +53,8 @@ function assessRound(playerSelection, computerSelection){
     assessRound(playerSelection, computerSelection);
 }
 */
-function playRound(e) {
-    let playerSelection = e.button.innerHTML;
+function playRound(playerInput) {
+    let playerSelection = playerInput;
     let computerSelection = getComputerChoice();
     console.log("The computer chose", computerSelection);
     assessRound(playerSelection, computerSelection);
@@ -83,12 +83,12 @@ function assessResults(playerPoints, computerPoints){
 }
 
 
-function playerSelectionTest (e){
+/*function playerSelectionTest (e){
     let playerInput = e;
     playerSelection = playerInput.button.innerHTML;
     console.log(playerSelection);
 }
-
+*/
 
 
 
@@ -97,8 +97,8 @@ for (i = 0; i<validOptionsLength; i++){
     let button = document.createElement("button");
     button.innerHTML = validOptions[i];
     button.addEventListener("click", ()=>{
-        playerSelection = button.innerHTML;
-        console.log(playerSelection);
+        playerInput = button.innerHTML;
+        playRound(playerInput);
     });
     document.body.appendChild(button);
 }
