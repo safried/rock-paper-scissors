@@ -6,12 +6,25 @@ let computerPoints = 0;
 let rounds = 0;
 let totalRounds = 0;
 
-
 function gameStartData(){
     playerPoints = 0;
     computerPoints = 0;
     rounds = 0
     totalRounds = 5;
+}
+
+
+
+function updatePlayerPointsText(){
+    playerPointsLog.textContent = "player points =" + playerPoints;
+}
+
+function updateComputerPointsText(){
+    computerPointsLog.textContent = "computer points =" + computerPoints;
+}
+
+function updateRoundNumberText(){
+    roundLog.textContent = "rounds = " + rounds;
 }
 
 //function to get computer choice
@@ -37,8 +50,8 @@ function assessRoundResults(playerSelection, computerSelection){
         div.innerHTML="You lose! "+ computerSelection+" beats "+playerSelection+".";
         computerPoints++;
     }
-playerPointsLog.textContent = "player points =" + playerPoints;
-computerPointsLog.textContent = "computer points =" + computerPoints;
+updatePlayerPointsText();
+updateComputerPointsText();
 }
 
 //function to play one round
@@ -48,7 +61,7 @@ function playRound(playerInput) {
     console.log("The computer chose", computerSelection);
     assessRoundResults(playerSelection, computerSelection);
     rounds ++;
-    roundLog.textContent = "rounds = " + rounds;
+    updateRoundNumberText();
     if (rounds === totalRounds){
         assessMatchResults();
     }
@@ -65,7 +78,6 @@ function assessMatchResults(playerPoints, computerPoints){
     else{
         div.innerHTML="The match has ended in a tie! Click 'New Game' to play again.";
     }
-    
 }
 
 //UI
