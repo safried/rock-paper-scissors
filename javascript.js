@@ -34,23 +34,27 @@ function assessRoundResults(playerSelection, computerSelection){
     }else if (playerSelection == computerSelection){
         div.innerHTML="It's a tie";
     }else {
-        div.innerHTML="You lose! "+ computerSelection+" beats "+playerSelection+" .";
+        div.innerHTML="You lose! "+ computerSelection+" beats "+playerSelection+".";
         computerPoints++;
     }
+playerPointsLog.textContent = "player points =" + playerPoints;
+computerPointsLog.textContent = "computer points =" + computerPoints;
 }
 
+//function to play one round
 function playRound(playerInput) {
     let playerSelection = playerInput;
     let computerSelection = getComputerChoice();
     console.log("The computer chose", computerSelection);
     assessRoundResults(playerSelection, computerSelection);
     rounds ++;
+    roundLog.textContent = "rounds = " + rounds;
     if (rounds === totalRounds){
         assessMatchResults();
     }
 }
 
-
+//function to assess the results of one match consisting of several rounds
 function assessMatchResults(playerPoints, computerPoints){
     if (playerPoints > computerPoints){
         div.innerHTML="You won the match! Click 'New Game' to play again.";
@@ -61,6 +65,7 @@ function assessMatchResults(playerPoints, computerPoints){
     else{
         div.innerHTML="The match has ended in a tie! Click 'New Game' to play again.";
     }
+    
 }
 
 //UI
@@ -77,8 +82,6 @@ gameStartButton.addEventListener("click", ()=>{
 });
 document.body.appendChild(gameStartButton);
 
-
-
 for (i = 0; i<validOptionsLength; i++){
     let button = document.createElement("button");
     button.innerHTML = validOptions[i];
@@ -88,7 +91,6 @@ for (i = 0; i<validOptionsLength; i++){
     });
     document.body.appendChild(button);
 }
-
 
 var playerPointsLog = document.createElement("div");
 playerPointsLog.style.width = "200px";
@@ -102,13 +104,5 @@ document.body.appendChild(computerPointsLog);
 
 var roundLog = document.createElement("div");
 roundLog.style.width = "200px";
-roundLog.textContent = "rounds =" + `${rounds}`;
+roundLog.textContent = "rounds = " + rounds;
 document.body.appendChild(roundLog);
-
-
-/*MAIN
-let gameInput = prompt("How many rounds would you like to play: ");
-playMatch(gameInput);
-assessResults(playerPoints,computerPoints);
-*/
-
