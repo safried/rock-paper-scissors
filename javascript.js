@@ -4,16 +4,16 @@ const validOptionsLength = validOptions.length;
 let playerPoints = 0;
 let computerPoints = 0;
 let rounds = 0;
-let totalRounds = 0;
+let totalRounds = 5;
 
 function gameStartData(){
     playerPoints = 0;
     computerPoints = 0;
     rounds = 0
-    totalRounds = 5;
+    updatePlayerPointsText();
+    updateComputerPointsText();
+    updateRoundNumberText();
 }
-
-
 
 function updatePlayerPointsText(){
     playerPointsLog.textContent = "player points =" + playerPoints;
