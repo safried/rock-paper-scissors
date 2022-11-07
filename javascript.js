@@ -63,7 +63,7 @@ function playRound(playerInput) {
     rounds ++;
     updateRoundNumberText();
     if (rounds === totalRounds){
-        assessMatchResults();
+        assessMatchResults(playerPoints, computerPoints);
     }
 }
 
