@@ -72,7 +72,7 @@ function assessMatchResults(playerPoints, computerPoints){
     if (playerPoints > computerPoints){
         div.innerHTML="You won the match! Click 'New Game' to play again.";
     }
-    else if (computerPoints < playerPoints){
+    else if (playerPoints < computerPoints){
         div.innerHTML="You lost the match! Click 'New Game' to play again.";
     }
     else{
