@@ -9,7 +9,7 @@ let totalRounds = 5;
 function gameStartData(){
     playerPoints = 0;
     computerPoints = 0;
-    rounds = 0
+    rounds = 0;
     updatePlayerPointsText();
     updateComputerPointsText();
     updateRoundNumberText();
@@ -99,7 +99,9 @@ for (i = 0; i<validOptionsLength; i++){
     button.innerHTML = validOptions[i];
     button.addEventListener("click", ()=>{
         playerInput = button.innerHTML;
-        playRound(playerInput);
+        if (rounds != totalRounds){
+            playRound(playerInput);
+        }
     });
     document.body.appendChild(button);
 }
